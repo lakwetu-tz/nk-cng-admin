@@ -76,13 +76,13 @@ const Dashboard: React.FC = () => {
       title: "Total Debt Accumulated",
       desc: "Total debt accumulated",
       icon: FiFolderPlus,
-      value: 2000,
+      value: 0,
     },
     {
       title: "Total Revenue Generated",
       desc: "Total revenue generated",
       icon: FiDollarSign,
-      value: 200,
+      value: 2,
     },
   ];
 
