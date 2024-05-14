@@ -9,24 +9,28 @@ import UserPage from './pages/users/UserPage';
 import PayPage from './pages/payment/PayPage';
 import VehiclePage from './pages/vehicle/VehiclePage';
 import Report from './pages/report /Report';
+import { AuthProvider } from './context/AuthProvider';
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/" element={<DashLayout /> }>
-          <Route index element={<Dashboard />} />
-        </Route>
-        <Route element={<MainLayout />}>
-          <Route path="/user" element={<UserPage />} />
-          <Route path="/payment" element={<PayPage />} />
-          <Route path="/vehicles" element={<VehiclePage />} />
-          <Route path="/report" element={<Report />}/>
-        </Route>
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/" element={<DashLayout />}>
+            <Route index element={<Dashboard />} />
+          </Route>
+          <Route element={<MainLayout />}>
+            <Route path="/user" element={<UserPage />} />
+            <Route path="/payment" element={<PayPage />} />
+            <Route path="/vehicles" element={<VehiclePage />} />
+            <Route path="/report" element={<Report />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
+   
   );
 };
 

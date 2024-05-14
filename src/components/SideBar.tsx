@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { navigation, navsFooter } from "../assets/dummy";
+import { Link } from "react-router-dom";
 
 interface DropdownMenuProps {
     children: React.ReactNode[];
@@ -63,14 +64,15 @@ const Sidebar: React.FC = () => {
                 onMouseLeave={() => setIsExpanded(false)}>
                 <div className="flex flex-col h-full">
                     <div className={`h-20 flex items-center ${isExpanded ? 'px-8' : 'justify-center px-8'}`}>
-                        <a href="/" className="flex-none">
+                        <Link to="/" className="flex-none">
                             <img
-                                src={isExpanded ? "" : "../assets/image/logo.png"}
+                                src={isExpanded ? require("../assets/logo.png") : require("../assets/car.png")}
+                                height={isExpanded ? 140 : 35}
                                 width={isExpanded ? 140 : 35}
                                 className="mx-auto"
                                 alt="Logo"
                             />
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex-1 flex flex-col h-full">
                         <ul className="px-4 text-sm font-medium flex-1">
@@ -80,7 +82,7 @@ const Sidebar: React.FC = () => {
                                         href={item.href}
                                         className={`flex items-center gap-x-2 text-gray-600 p-2 rounded-lg ${isExpanded ? 'hover:bg-gray-50 active:bg-gray-100 duration-150' : ''}`}
                                     >
-                                        <div className="text-gray-500">{item.icon}</div>
+                                        <div className="text-green-500">{item.icon}</div>
                                         {isExpanded && item.name}
                                     </a>
                                 </li>

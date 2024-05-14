@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiUsers, FiActivity, FiDatabase, FiShoppingCart, FiDollarSign, FiCreditCard } from 'react-icons/fi'; // Import required React Icons
+import { FiUsers, FiActivity, FiDatabase, FiShoppingCart, FiDollarSign, FiCreditCard, FiSettings, FiClipboard, FiFolderMinus, FiFolderPlus } from 'react-icons/fi'; // Import required React Icons
 
 // Define types
 type Metric = {
@@ -21,7 +21,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, desc, icon: IconComponen
     <div className="border rounded-lg p-4 bg-white shadow-md">
       <div className="flex items-start justify-between">
         <div className="space-y-2">
-          <IconComponent className="w-10 h-10 text-indigo-500" /> {/* Render the icon component with indigo color */}
+          <IconComponent className="w-10 h-10 text-green-500" /> {/* Render the icon component with indigo color */}
           <h4 className="text-gray-800 font-semibold">{title}</h4>
           <p className="text-gray-600 text-sm">{desc}</p>
         </div>
@@ -40,43 +40,49 @@ const Dashboard: React.FC = () => {
       title: "All Users",
       desc: "Total number of users",
       icon: FiUsers,
-      value: 1000,
+      value: 1,
     },
     {
       title: "Active Users",
       desc: "Number of active users",
       icon: FiActivity,
-      value: 700,
+      value: 0,
     },
     {
       title: "Database Size",
       desc: "Total size of the database",
       icon: FiDatabase,
-      value: 500,
+      value: 2,
     },
     {
-      title: "Cars Refill",
-      desc: "Number of cars refilled",
-      icon: FiShoppingCart,
-      value: 300,
+      title: "Refill",
+      desc: "Number of cars refilled ",
+      icon: FiSettings,
+      value: 0,
     },
     {
       title: "Refill Requests",
       desc: "Number of refill requests",
-      icon: FiDollarSign,
+      icon: FiClipboard,
       value: 150,
     },
     {
-      title: "Total Revenue",
+      title: "Total Debt Given",
       desc: "Total revenue generated",
-      icon: FiCreditCard,
-      value: 5000,
+      icon: FiFolderMinus,
+      value: 0,
     },
     {
-      title: "Total Debt",
+      title: "Total Debt Accumulated",
       desc: "Total debt accumulated",
-      icon: FiCreditCard,
+      icon: FiFolderPlus,
       value: 2000,
+    },
+    {
+      title: "Total Revenue Generated",
+      desc: "Total revenue generated",
+      icon: FiDollarSign,
+      value: 200,
     },
   ];
 

@@ -76,8 +76,8 @@ const AddUserModal: React.FC<Props> = ({ isOpen, onClose }) => {
                             { isStep === 1 && (
                                 <form className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
                                     <div className="space-y-2 col-span-full lg:col-span-1">
-                                        <p className="font-medium">Personal Inormation</p>
-                                        <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
+                                        <p className="font-medium">Personal Information</p>
+                                        <p className="text-xs">Fill in the user information and click next form more information</p>
                                     </div>
                                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                                         <div className="col-span-full sm:col-span-3">
@@ -120,7 +120,7 @@ const AddUserModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                         <div className="col-span-full">
                                             <label htmlFor="bio" className="text-sm">Photo</label>
                                             <div className="flex items-center space-x-2">
-                                                <img src="https://source.unsplash.com/30x30/?random" alt="" className="w-10 h-10 dark:bg-gray-500 rounded-full dark:bg-gray-300" />
+                                                <img src="https://source.unsplash.com/30x30/?random" alt="" className="w-10 h-10 rounded-full dark:bg-gray-300" />
                                                 <button type="button" className="px-4 py-2 border rounded-md dark:border-gray-800">Change</button>
                                             </div>
                                         </div>
@@ -129,7 +129,7 @@ const AddUserModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                             <button
                                                 type="submit"
                                                 onClick={() => setIsStep(isStep + 1)}
-                                                className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
+                                                className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
                                             >
                                                 Next
                                             </button>

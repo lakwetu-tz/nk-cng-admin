@@ -9,17 +9,17 @@ const UserPage = () => {
           <div className="items-start justify-between md:flex">
               <div className="max-w-lg">
                   <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
-                      Team members
+                      Loan members
                   </h3>
                   <p className="text-gray-600 mt-2">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     View all loan members in a table format. You can also add new members. 
                   </p>
               </div>
               <div className="mt-3 md:mt-0">
                   <button
                       onClick={() => setIsModalOpen(true)}
     
-                      className="inline-block px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
+                      className="inline-block px-4 py-2 text-white duration-150 font-medium bg-green-600 rounded-lg hover:bg-green-500 active:bg-green-700 md:text-sm"
                   >
                       Add member
                   </button>
@@ -49,9 +49,15 @@ const UserPage = () => {
                                           <span className="block text-gray-700 text-xs">{item.email}</span>
                                       </div>
                                   </td>
-                                  <td className="px-6 py-4 whitespace-nowrap">{item.phone_nimber}</td>
-                                  <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
-                                  <td className="px-6 py-4 whitespace-nowrap">{item.salary}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap">{item.phone}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap">{item.ward}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap">{item.city}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap">{item.debt}</td>
+                                  <td className="pr-6 py-4 whitespace-nowrap">
+                                      <span className={`px-3 py-2 rounded-full font-semibold text-xs ${item.status == "Registered" ? "text-green-600 bg-green-50" : "text-blue-600 bg-blue-50"}`}>
+                                          {item.status}
+                                      </span>
+                                  </td>
                                   <td className="text-right px-6 whitespace-nowrap">
                                       <a href="javascript:void()" className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
                                           Edit
