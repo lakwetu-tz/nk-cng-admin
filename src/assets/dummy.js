@@ -256,3 +256,163 @@ export const transactions = [
         amount: 75000,
     }
 ]
+
+
+export const report = [
+    {
+        title: 'Loans Over Time',
+        desc: 'Monthly loan applications',
+        type: 'line',
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        series: [
+            {
+                name: 'Loans',
+                data: [30, 40, 35, 50, 49, 60, 70],
+            },
+        ],
+        options: {
+
+        },
+        colors: ['#72c053'],
+    },
+    {
+        title: 'Loan Approvals',
+        desc: 'Monthly loan approvals',
+        type: 'bar',
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        series: [
+            {
+                name: 'Approvals',
+                data: [20, 30, 25, 40, 45, 50, 60],
+            },
+        ],
+        options: {
+            // Additional ApexCharts options
+        },
+    },
+    {
+        title: 'Loan Rejections',
+        desc: 'Monthly loan rejections',
+        type: 'area',
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        series: [
+            {
+                name: 'Rejections',
+                data: [5, 10, 15, 10, 20, 15, 10],
+            },
+        ],
+        options: {
+            // Additional ApexCharts options
+        },
+    },
+    {
+        title: 'Loan Types Distribution',
+        desc: 'Distribution of different loan types',
+        type: 'pie',
+        categories: [],
+        series: [40, 30, 20, 10],
+        options: {
+            labels: ['Personal Loans', 'Home Loans', 'Auto Loans', 'Education Loans'],
+        },
+    },
+    {
+        title: 'Loan Amount Range',
+        desc: 'Distribution of loan amounts',
+        type: 'donut',
+        categories: [],
+        series: [10, 25, 30, 20, 15],
+        options: {
+            labels: ['< $1000', '$1000 - $5000', '$5000 - $10000', '$10000 - $20000', '> $20000'],
+        },
+    },
+    {
+        title: 'Approval Rate by Region',
+        desc: 'Regional loan approval rates',
+        type: 'radialBar',
+        categories: [],
+        series: [80, 70, 60, 90],
+        options: {
+            labels: ['North', 'South', 'East', 'West'],
+        },
+    },
+    {
+        title: 'Loan Repayment Rate',
+        desc: 'Monthly loan repayment rates',
+        type: 'scatter',
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        series: [
+            {
+                name: 'Repayment Rate',
+                data: [
+                    [1, 80],
+                    [2, 85],
+                    [3, 75],
+                    [4, 90],
+                    [5, 85],
+                    [6, 95],
+                    [7, 100],
+                ],
+            },
+        ],
+        options: {
+            xaxis: {
+                tickAmount: 7,
+                labels: {
+                    formatter: function (val) {
+                        return val.toFixed(0);
+                    },
+                },
+            },
+            yaxis: {
+                max: 100,
+            },
+        },
+    },
+    {
+        title: 'Loans by Customer Age',
+        desc: 'Loan distribution by customer age',
+        type: 'heatmap',
+        categories: ['<20', '20-30', '30-40', '40-50', '50-60', '>60'],
+        series: [
+            {
+                name: 'Loans',
+                data: [10, 30, 45, 35, 20, 15],
+            },
+        ],
+        options: {
+            plotOptions: {
+                heatmap: {
+                    shadeIntensity: 0.5,
+                    colorScale: {
+                        ranges: [
+                            {
+                                from: 0,
+                                to: 10,
+                                color: '#00A100',
+                                name: '0-10',
+                            },
+                            {
+                                from: 11,
+                                to: 20,
+                                color: '#128FD9',
+                                name: '11-20',
+                            },
+                            {
+                                from: 21,
+                                to: 30,
+                                color: '#FFB200',
+                                name: '21-30',
+                            },
+                            {
+                                from: 31,
+                                to: 40,
+                                color: '#FF0000',
+                                name: '31-40',
+                            },
+                        ],
+                    },
+                },
+            },
+        },
+    },
+];

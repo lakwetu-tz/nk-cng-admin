@@ -6,28 +6,27 @@
     "@react-google-maps/api": "^2.19.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^28.1.8",
     "@types/node": "^17.0.45",
     "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "apexcharts": "^3.49.1",
+    "@types/react-dom": "^18.2.0 || 17.0.0 || 16.0.0 | 15.0.0",
+    "africastalking": "^0.6.7",
+    "apexcharts": "^3.48.0",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
-    "google-map-react": "^2.2.1",
     "postcss": "^8.4.38",
     "postcss-cli": "^9.1.0",
     "postcss-preset-env": "^7.8.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "socket.io-client": "^4.7.5",
+    "react": "^18.2.70 || 17.0.0 || 16.0.0 | 15.0.0",
     "react-apexcharts": "^1.4.1",
+    "react-dom": "^18.2.22 || 17.0.0 || 16.0.0 | 15.0.0",
     "react-icons": "^5.1.0",
     "react-router-dom": "^6.23.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1 || 4.0.3",
+    "sweetalert2": "^11.10.8",
     "tailwindcss": "^3.4.3",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,5 +51,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/africastalking": "^0.6.2"
+    
   }
 }

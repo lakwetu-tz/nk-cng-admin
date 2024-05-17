@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { integrations, transactions } from '../../assets/dummy';
 
-const PayPage: React.FC = () => {
+const LoanPage: React.FC = () => {
 
     const [ isActiveTab, setIsActiveTab ] = React.useState("overview")
     const navigation = [
@@ -420,4 +420,4 @@ const PayPage: React.FC = () => {
     );
 };
 
-export default PayPage;
+export default LoanPage;

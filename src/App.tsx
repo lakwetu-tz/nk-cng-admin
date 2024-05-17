@@ -6,10 +6,11 @@ import RegisterPage from './pages/welcome/Register';
 import Dashboard from './pages/dashboard/DashBoard';
 import MainLayout from './layout/MainLayout';
 import UserPage from './pages/users/UserPage';
-import PayPage from './pages/payment/PayPage';
+import PayPage from './pages/loan/LoanPage';
 import VehiclePage from './pages/vehicle/VehiclePage';
-import Report from './pages/report /Report';
+import Report from './pages/report /ReportPage';
 import { AuthProvider } from './context/AuthProvider';
+import Map from './pages/map/MapPage';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,8 @@ const App: React.FC = () => {
           </Route>
           <Route element={<MainLayout />}>
             <Route path="/user" element={<UserPage />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/report" element={<Report />} />
             <Route path="/payment" element={<PayPage />} />
             <Route path="/vehicles" element={<VehiclePage />} />
             <Route path="/report" element={<Report />} />
