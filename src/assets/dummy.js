@@ -214,19 +214,19 @@ export const posts = [
 
 export const integrations = [
     {
-        title: "Azama",
-        desc: "Ut enim ad minim veniam",
+        title: "Azam Pay",
+        desc: "Intergrate the platform with Azam-Pay",
         icon: azam,
                 
 
         }, {
-        title: "Github",
-        desc: "Ut enim ad minim veniam",
+        title: "Mpesa",
+        desc: "Intergrate the platform with vodacom M-pesa",
         icon: require('../assets/image/m-pesa.jpg'),
 
         }, {
-        title: "Discord",
-        desc: "Ut enim ad minim veniam",
+        title: "Tigo Pesa",
+        desc: "Intergrate the platform with Tigo-pesa",
         icon: require('../assets/image/tigo-pesa.png'),
         },
 ]

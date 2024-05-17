@@ -14,7 +14,7 @@ export const MainLayout: React.FC = () => {
             <Sidebar />
             <div className="flex flex-col flex-1">
                 <NavBar />
-                <div className={`flex-1 ${isSidebarExpanded ? "px-4" : "px-24"}`}>
+                <div className={`py-16 flex-1 ${isSidebarExpanded ? "px-4" : "px-24"}`}>
                     <Outlet /></div>
             </div>
         </div>

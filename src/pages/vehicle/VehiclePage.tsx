@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiActivity } from 'react-icons/fi';
+import { FiActivity, FiCheck, FiCheckCircle } from 'react-icons/fi';
 import { TiBatteryCharge } from 'react-icons/ti';
 import { IoCarSport } from 'react-icons/io5';
 import { posts } from '../../assets/dummy';
@@ -50,15 +50,19 @@ const VehiclePage: React.FC = () => {
                 {posts.map((item, key) => (
                     <article
                         key={key}
-                        className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
+                        className="max-w-md mx-auto mt-4 h-72 w-96 shadow-lg border rounded-md duration-300 hover:shadow-sm"
                     >
-                        <div onClick={() => handleViewVehModal(item.id)}>
-                            <img
-                                src={item.img}
-                                loading="lazy"
-                                alt={item.title}
-                                className="w-full h-48 rounded-t-md"
-                            />
+                        <div className='flex flex-col' onClick={() => handleViewVehModal(item.id)}>
+
+                            <div className="w-full h-52 duration-300 rounded-t-md bg-gray-400" >
+                                <img
+                                    src={item.img}
+                                    loading="lazy"
+                                    alt={item.title}
+                                    className="w-full h-[208px] rounded-t-md"
+                                />
+                            </div>
+
                             <div className="flex items-center -mt-48 pt-3 ml-4 mr-2">
                                 <div className="flex-none w-10 h-10 rounded-full">
                                     <img
@@ -69,29 +73,40 @@ const VehiclePage: React.FC = () => {
                                 </div>
                                 <div className="ml-3"></div>
                             </div>
-                            <div className="flex justify-between items-center pt-3 ml-4 mr-2 mb-3 mt-36 px-12">
-                                <button className="flex items-center space-x-2 bg-green-800 px-2 rounded-lg shadow-lg mr-8">
-                                    <IoCarSport color="orange" />
-                                    <h3 className="text-sm text-gray-200 space-x-2">
+                            <div className="flex justify-between items-center mb-2 mt-[9.5rem] px-2">
+                                <div className="flex flex-col ">
+
+                                    <p className="flex items-center space-x-2 px-2 text-sm text-gray-400 ">
+                                        <IoCarSport color="orange" className='mr-2' />
                                         {item.title} {item.model}
-                                    </h3>
-                                </button>
+                                    </p>
+                                    <p className="flex items-center space-x-2 px-2 mt-2 text-sm text-gray-400 ">
+                                        <FiCheckCircle color="green" className='mr-2' />
+                                        Cleared
+                                    </p>
+                                </div>
                                 <div className="flex items-center space-x-1">
                                     <TiBatteryCharge size={22} color="green" />
                                     <p className="text-gray-400 text-sm mt-1">
-                                        {item.desc} Refill
+                                        1 CNG Tank
+                                        <strong className='ml-2'>
+                                            17 KG
+                                        </strong>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <ViewVehModel
-                            id={selectedVehicleId}
-                            isOpen={isModalOpen}
-                            onClose={handleCloseModal}
-                        />
+
                     </article>
+
                 ))}
             </div>
+
+            <ViewVehModel
+                id={selectedVehicleId}
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </section>
     );
 };
