@@ -13,27 +13,30 @@ import { AuthProvider } from './context/AuthProvider';
 import Map from './pages/map/MapPage';
 
 const App: React.FC = () => {
+
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/" element={<DashLayout />}>
-            <Route index element={<Dashboard />} />
-          </Route>
-          <Route element={<MainLayout />}>
-            <Route path="/user" element={<UserPage />} />
-            <Route path="/map" element={<Map />} />
-            <Route path="/report" element={<Report />} />
-            <Route path="/payment" element={<PayPage />} />
-            <Route path="/vehicles" element={<VehiclePage />} />
-            <Route path="/report" element={<Report />} />
-          </Route>
+          
+            <Route element={<MainLayout />}>
+              <Route path="/user" element={<UserPage />} />
+              <Route path="/map" element={<Map />} />
+              <Route path="/report" element={<Report />} />
+              <Route path="/payment" element={<PayPage />} />
+              <Route path="/vehicles" element={<VehiclePage />} />
+              <Route path="/" element={<DashLayout />}>
+                <Route index element={<Dashboard />} />
+              </Route>
+            </Route>
+         
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              
         </Routes>
       </Router>
     </AuthProvider>
-   
+
   );
 };
 

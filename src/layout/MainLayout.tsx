@@ -1,13 +1,19 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Sidebar from "../components/SideBar";
 import NavBar from "../components/NavBar";
 
+import { useAuth } from "../context/AuthProvider";
 import { useAppContext } from '../context/AppProvider';
 
 
 export const MainLayout: React.FC = () => {
     const { isSidebarExpanded } = useAppContext();
+    const { user } = useAuth();
+
+    if (!user || !user.token ){
+        return <Navigate to="/login" replace={true} />;
+    }
 
     return (
         <div className="flex h-screen">

@@ -5,45 +5,42 @@ import { useAuth } from '../../context/AuthProvider';
 import axios from 'axios';
 
 const LoginPage: React.FC = () => {
-    const [email, setEmail] = useState('');
+    const [auth, setAuth] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const [ errorMessage, setErrorMessage ] = useState('');
-    const { login } = useAuth()
+    const [errorMessage, setErrorMessage] = useState('');
+    const { login } = useAuth();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsLoading(true);
+        setErrorMessage('');
 
         try {
-            // Simulate server response when the server is not working
-            if (email === 'support@gmail.com' && password === 'password') {
-                login({
-                    token: 'default_token',
-                    id: 'default_id',
-                    name: 'Default User',
-                    email: 'default@example.com',
-                });
-                navigate('/home');
+            // Make the actual API call when the server is working
+            const response = await axios.post('http://127.0.0.1:4000/api/v1/superuser/login', {
+                auth,
+                password,
+            });
+
+            login({
+                token: response.data.token,
+                id: response.data._id,
+                name: response.data.user.username,
+                email: response.data.user.email,
+            });
+
+            navigate('/');
+        } catch (err) {
+            if (axios.isAxiosError(err) && err.response) {
+                // Error from the server
+                setErrorMessage(err.response.data.message || 'An unexpected error occurred');
             } else {
-                // Make the actual API call when the server is working
-                const response = await axios.post('http://192.168.100.115:4000/api/v1/user/login', {
-                    email,
-                    password,
-                });
-
-                login({
-                    token: response.data.token,
-                    id: response.data._id,
-                    name: response.data.user.name,
-                    email: response.data.user.email,
-                });
-
-                navigate('/');
+                // Other errors (network issues, etc.)
+                setErrorMessage('An unexpected error occurred');
             }
-        } catch (error) {
-            setErrorMessage('Invalid email or password');
-            console.error('Error during login:', error);
+            console.error('Error during login:', err);
         } finally {
             setIsLoading(false);
         }
@@ -89,12 +86,12 @@ const LoginPage: React.FC = () => {
                         className="space-y-5"
                     >
                         <div>
-                            <label className="font-medium">Email</label>
+                            <label className="font-medium">Email or Username</label>
                             <input
-                                type="email"
+                                type="text"
                                 required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={auth}
+                                onChange={(e) => setAuth(e.target.value)}
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-green-600 shadow-sm rounded-lg"
                             />
                         </div>
@@ -110,9 +107,10 @@ const LoginPage: React.FC = () => {
                         </div>
                         {errorMessage && <p className='text-red-600 mb-2'>{errorMessage}</p>}
                         <button
+                        type='submit'
                             className="w-full px-4 py-2 text-white font-medium bg-[#72c053] hover:bg-green-500 active:bg-green-600 rounded-lg duration-150"
                         >
-                            Sign in
+                            {isLoading ? 'Loading...' : 'Sign Up'}
                         </button>
                     </form>
                 </div>
