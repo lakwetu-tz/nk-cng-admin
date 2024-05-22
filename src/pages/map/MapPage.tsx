@@ -17,7 +17,7 @@ const MapPage = () => {
   const [center, setCenter] = useState(darEsSalaam);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: apiKey ? apiKey : "AIzaSyCzLm7n7s96NLk-olcnVkAUzDGW2aYT6YQ",
+    googleMapsApiKey: process.env.GOOGLE_MAP_APIKEY || "",
     libraries: ["places"],
   });
 
