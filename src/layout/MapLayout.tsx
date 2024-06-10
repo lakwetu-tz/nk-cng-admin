@@ -1,8 +1,9 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Sidebar from "../components/SideBar";
 
 import { useAppContext } from '../context/AppProvider';
+import { useAuth } from "../context/AuthProvider";
 
 
 export const MapLayout: React.FC = () => {

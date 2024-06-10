@@ -62,7 +62,7 @@ const RegisterPage: React.FC = () => {
 
         try {
             setIsLoading(true);
-            const response = await axios.post('http://192.168.100.131:4000/api/v1/superuser/register', {
+            const response = await axios.post('http://127.0.0.1:4000/api/v1/superuser/register', {
                 username,
                 email,
                 password,
@@ -120,7 +120,7 @@ const RegisterPage: React.FC = () => {
                         <div>
                             <label className="font-medium">
                                 <label>
-                                    <span className="text-sm text-gray-600">Username
+                                    <span className="flex items-center text-sm text-gray-600">Username
                                         <FiUserCheck className={validUsername ? "text-green-500 ml-2" : "hidden"} />
                                         <FiUserX className={ validUsername || !focusUsername ? "hidden" : "text-red-500 ml-2"} />
                                     </span>

@@ -14,10 +14,6 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
     const { isSidebarExpanded } = useAppContext();
 
-    if (!user || !user.token) {
-        return <Navigate to="/" />;
-    }
-
     return (
         <div className="flex h-screen">
             <Sidebar />

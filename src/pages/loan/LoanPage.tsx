@@ -92,10 +92,10 @@ const PayPage: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div className="flex-grow flex flex-col ml-4">
-                                    <span className="text-xl font-bold">TZS 8,430</span>
+                                    <span className="text-xl font-bold">TZS 0</span>
                                     <div className="flex items-center justify-between">
                                         <span className="text-gray-500">Revenue last 30 days</span>
-                                        <span className="text-green-500 text-sm font-semibold ml-2">+12.6%</span>
+                                        <span className="text-green-500 text-sm font-semibold ml-2">0%</span>
                                     </div>
                                 </div>
                             </div>
@@ -111,10 +111,10 @@ const PayPage: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div className="flex-grow flex flex-col ml-4">
-                                    <span className="text-xl font-bold">211</span>
+                                    <span className="text-xl font-bold">0</span>
                                     <div className="flex items-center justify-between">
                                         <span className="text-gray-500">Loans last 30 days</span>
-                                        <span className="text-red-500 text-sm font-semibold ml-2">-8.1%</span>
+                                        <span className="text-red-500 text-sm font-semibold ml-2">-0%</span>
                                     </div>
                                 </div>
                             </div>
@@ -130,11 +130,11 @@ const PayPage: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div className="flex-grow flex flex-col ml-4">
-                                    <span className="text-xl font-bold">140</span>
+                                    <span className="text-xl font-bold">0</span>
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center justify-between">
                                             <span className="text-gray-500">Customers last 30 days</span>
-                                            <span className="text-green-500 text-sm font-semibold ml-2">+28.4%</span>
+                                            <span className="text-green-500 text-sm font-semibold ml-2">+0%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -415,6 +415,8 @@ const PayPage: React.FC = () => {
                             </table>
                         </div>
                     </div>
+
+                    
                 </section>
             )}
 

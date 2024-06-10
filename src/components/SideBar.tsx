@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { navigation, navsFooter } from "../assets/dummy";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 interface DropdownMenuProps {
     children: React.ReactNode[];
@@ -52,6 +53,7 @@ const Avatar: React.FC<AvatarProps> = ({ src, alt, fallback, delayMs }) => {
 
 const Sidebar: React.FC = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const { user, logout } = useAuth();
 
     return (
         <>
@@ -111,7 +113,7 @@ const Sidebar: React.FC = () => {
                                             vienna@gmail.com
                                         </span>
                                         <a
-                                            href="/dashboard"
+                                            href="/"
                                             className={`block w-full p-2 text-left rounded-md ${isExpanded ? 'hover:bg-gray-50 active:bg-gray-100 duration-150' : ''}`}
                                         >
                                             Dashboard
@@ -137,7 +139,7 @@ const Sidebar: React.FC = () => {
                                                 <option>Light</option>
                                             </select>
                                         </div>
-                                        <button className={`block w-full p-2 text-left rounded-md ${isExpanded ? 'hover:bg-gray-50 active:bg-gray-100 duration-150' : ''}`}>
+                                        <button onClick={logout} className={`block w-full p-2 text-left rounded-md ${isExpanded ? 'hover:bg-gray-50 active:bg-gray-100 duration-150' : ''}`}>
                                             Logout
                                         </button>
                                     </div>

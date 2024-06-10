@@ -1,8 +1,6 @@
-
+import { FiDatabase, FiBarChart2, FiMapPin, FiUsers, FiTool, FiArchive, FiHelpCircle, FiSettings, FiDollarSign, FiLogOut } from "react-icons/fi";
 
 import React from "react";
-import { FiSettings, FiBarChart2, FiUsers, FiDollarSign, FiTool, FiHelpCircle, FiLogOut, FiDatabase } from "react-icons/fi";
-
 const image1 = require('./image/1.jpg')
 const image2 = require('./image/2.jpg')
 const image3 = require('./image/3.jpg')
@@ -24,6 +22,11 @@ export const navigation = [
         icon: <FiBarChart2 size={18} />,
     },
     {
+        href: "/map",
+        name: "Map",
+        icon: <FiMapPin size={18} />,
+    },
+    {
         href: "/user",
         name: "User",
         icon: <FiUsers size={18} />,
@@ -35,8 +38,8 @@ export const navigation = [
     },
     {
         href: "/payment",
-        name: "Payment",
-        icon: <FiDollarSign size={18} />,
+        name: "Loans",
+        icon: <FiArchive size={18} />,
     }
 ];
 
@@ -52,6 +55,11 @@ export const navsFooter = [
         href: "/settings",
         name: "Settings",
         icon: <FiSettings size={18} />
+    },
+    {
+        href: "/billing",
+        name: "Billing",
+        icon: <FiDollarSign size={18} />
     },
     {
         href: "/logout",
