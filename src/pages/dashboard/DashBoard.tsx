@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiUsers, FiActivity, FiDatabase, FiShoppingCart, FiDollarSign, FiCreditCard, FiSettings, FiClipboard, FiFolderMinus, FiFolderPlus } from 'react-icons/fi'; // Import required React Icons
+import { FiUsers, FiActivity, FiDatabase, FiDollarSign, FiClipboard, FiFolderMinus, FiFolderPlus, FiTrendingUp, FiTrendingDown } from 'react-icons/fi'; // Import required React Icons
 
 // Define types
 type Metric = {
@@ -37,52 +37,52 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, desc, icon: IconComponen
 const Dashboard: React.FC = () => {
   const metrics: Metric[] = [
     {
-      title: "All Users",
-      desc: "Total number of users",
-      icon: FiUsers,
-      value: 1,
+      title: "Total Loans Issued",
+      desc: "Total number of loans issued",
+      icon: FiDollarSign,
+      value: 120,
     },
     {
-      title: "Active Users",
-      desc: "Number of active users",
-      icon: FiActivity,
-      value: 0,
+      title: "Total Payments Received",
+      desc: "Total amount of payments received",
+      icon: FiTrendingUp,
+      value: 50000,
     },
     {
-      title: "Database Size",
-      desc: "Total size of the database",
-      icon: FiDatabase,
-      value: 2,
+      title: "Total Outstanding Loans",
+      desc: "Total amount of outstanding loans",
+      icon: FiTrendingDown,
+      value: 75000,
     },
     {
-      title: "Refill",
-      desc: "Number of cars refilled ",
-      icon: FiSettings,
-      value: 0,
-    },
-    {
-      title: "Refill Requests",
-      desc: "Number of refill requests",
-      icon: FiClipboard,
-      value: 150,
-    },
-    {
-      title: "Total Debt Given",
-      desc: "Total revenue generated",
+      title: "Total Loans in Default",
+      desc: "Number of loans currently in default",
       icon: FiFolderMinus,
-      value: 0,
+      value: 5,
     },
     {
-      title: "Total Debt Accumulated",
-      desc: "Total debt accumulated",
-      icon: FiFolderPlus,
-      value: 0,
+      title: "Default Rate",
+      desc: "Percentage of loans in default",
+      icon: FiClipboard,
+      value: 4, // as a percentage
+    },
+    {
+      title: "Active Loan Requests",
+      desc: "Number of active loan requests",
+      icon: FiActivity,
+      value: 30,
+    },
+    {
+      title: "Registered Users",
+      desc: "Total number of registered users",
+      icon: FiUsers,
+      value: 450,
     },
     {
       title: "Total Revenue Generated",
-      desc: "Total revenue generated",
-      icon: FiDollarSign,
-      value: 2,
+      desc: "Total revenue generated from loans",
+      icon: FiDatabase,
+      value: 120000,
     },
   ];
 
@@ -91,7 +91,7 @@ const Dashboard: React.FC = () => {
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="max-w-md">
           <h1 className="text-gray-800 text-xl font-extrabold sm:text-2xl">Dashboard Metrics</h1>
-          <p className="text-gray-600 mt-2">View statistical data about your dashboard.</p>
+          <p className="text-gray-600 mt-2">View statistical data about your loan management system.</p>
         </div>
         <div className="mt-16 grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
           {metrics.map((metric, idx) => (

@@ -48,12 +48,15 @@ const App: React.FC = () => {
              <Route path="/login" element={<LoginPage />} />
              <Route path="/register" element={<RegisterPage />} />
            </>
-          ): (
+              ): (
             <>
-              <Route path="/user" element={<UserPage />} />
-              <Route path="/report" element={<Report />} />
-              <Route path="/payment" element={<PayPage />} />
-              <Route path="/vehicles" element={<VehiclePage />} />
+            <Route element={<MainLayout />}>
+                <Route path="/user" element={<UserPage />} />
+                <Route path="/report" element={<Report />} />
+                <Route path="/payment" element={<PayPage />} />
+                <Route path="/vehicles" element={<VehiclePage />} />
+            </Route>
+              
               <Route path="/map" element={<MapLayout />}>
                 <Route index element={<Map />} />
               </Route>
@@ -62,8 +65,6 @@ const App: React.FC = () => {
               </Route>
             </>
           )}
-
-        <Route path="/login" element={<LoginPage />} />
         </Routes>
       </Router>
 
