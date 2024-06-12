@@ -46,24 +46,30 @@ const VehiclePage: React.FC = () => {
 
                 </div>
             </div>
-            <div className="mt-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {posts.map((item, key) => (
                     <article
                         key={key}
-                        className="max-w-md mx-auto mt-4 h-72 w-96 shadow-lg border rounded-md duration-300 hover:shadow-sm"
+                        className="max-w-full mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
                     >
                         <div className='flex flex-col' onClick={() => handleViewVehModal(item.id)}>
 
                             <div className="w-full h-52 duration-300 rounded-t-md bg-gray-400" >
-                                <img
-                                    src={item.img}
-                                    loading="lazy"
-                                    alt={item.title}
-                                    className="w-full h-[208px] rounded-t-md"
-                                />
+                                {item.img ? (
+                                    <img
+                                        src={item.img}
+                                        loading="lazy"
+                                        alt={item.title}
+                                        className="w-full h-full object-cover rounded-t-md"
+                                    />
+                                ) : (
+                                    <div className="flex items-center justify-center w-full h-full text-gray-600">
+                                        <span>No Image</span>
+                                    </div>
+                                )}
                             </div>
 
-                            <div className="flex items-center -mt-48 pt-3 ml-4 mr-2">
+                            <div className="flex items-center -mt-10 pt-3 ml-4 mr-2">
                                 <div className="flex-none w-10 h-10 rounded-full">
                                     <img
                                         src={item.authorLogo}
@@ -73,7 +79,7 @@ const VehiclePage: React.FC = () => {
                                 </div>
                                 <div className="ml-3"></div>
                             </div>
-                            <div className="flex justify-between items-center mb-2 mt-[9.5rem] px-2">
+                            <div className="flex justify-between items-center mb-2 mt-10 px-2">
                                 <div className="flex flex-col ">
 
                                     <p className="flex items-center space-x-2 px-2 text-sm text-gray-400 ">

@@ -9,8 +9,15 @@ interface Form {
     last_name: string;
     email: string;
     phone: string;
-    ward: string;
-    city: string;
+    address: Address
+    validated: boolean;
+    created_at: string;
+}
+
+interface Address {
+    ward: string,
+    city: string,
+    postalCode: string
 }
 
 const UserPage: React.FC = () => {
@@ -90,8 +97,8 @@ const UserPage: React.FC = () => {
             `${form.first_name} ${form.last_name}`.toLowerCase().includes(searchQuery.toLowerCase()) ||
             form.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
             form.phone.includes(searchQuery) ||
-            form.ward.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            form.city.toLowerCase().includes(searchQuery.toLowerCase())
+            form.address.ward.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            form.address.city.toLowerCase().includes(searchQuery.toLowerCase())
         );
     }, [forms, searchQuery]);
 
@@ -120,13 +127,17 @@ const UserPage: React.FC = () => {
                     >
                         Add member
                     </button>
-                    <button
-                        onClick={handleDeleteSelected}
-                        className="inline-block px-4 py-2 text-white duration-150 font-medium bg-red-600 rounded-lg hover:bg-red-500 active:bg-red-700 md:text-sm"
-                        disabled={selectedForms.size === 0}
-                    >
-                        Delete selected
-                    </button>
+                    {selectedForms.size > 0 && (
+                        <button
+                            onClick={handleDeleteSelected}
+                            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-red-600 rounded-lg hover:bg-red-500 active:bg-red-700 md:text-sm"
+                            disabled={selectedForms.size === 0}
+                        >
+                            Delete selected
+                        </button>
+                    )
+                     }
+                    
                     <AddUserModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
                 </div>
             </div>
@@ -139,7 +150,7 @@ const UserPage: React.FC = () => {
                     className="mb-4 p-2 border border-gray-300 rounded"
                 />
             </div>
-            <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">
+            <div className="mt-12 shadow-sm border rounded-lg overflow-auto">
                 <table className="w-full table-auto text-sm text-left">
                     <thead className="bg-gray-50 text-gray-600 font-medium border-b">
                         <tr>
@@ -155,7 +166,8 @@ const UserPage: React.FC = () => {
                             <th className="py-3 px-6">Phone</th>
                             <th className="py-3 px-6">Ward</th>
                             <th className="py-3 px-6">City</th>
-                            <th className="py-3 px-6 text-right">Actions</th>
+                            <th className='py-3 px-6'>Date</th> 
+                            <th className='py-3 px-6'>Status</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-600 divide-y">
@@ -176,21 +188,19 @@ const UserPage: React.FC = () => {
                                 </td>
                                 <td className="py-3 px-6">{form.email}</td>
                                 <td className="py-3 px-6">{form.phone}</td>
-                                <td className="py-3 px-6">{form.ward}</td>
-                                <td className="py-3 px-6">{form.city}</td>
+                                <td className="py-3 px-6">{form.address.ward}</td>
+                                <td className="py-3 px-6">{form.address.city}</td>
+                                <td className='py-3 px-6'>{form.created_at}</td>
+                                <td className={`px-3 py-[1px] rounded-full font-semibold text-xs ${form.validated == true ? "text-green-600 bg-green-50" : "text-blue-600 bg-blue-50"}`}>
+                                    {form.validated ? "": "Not Approved"}</td>
                                 <td className="py-3 px-6 text-right">
                                     <button
                                         onClick={() => handleOpen(form._id)}
-                                        className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg"
+                                        className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
                                     >
-                                        Open
+                                        manage
                                     </button>
-                                    <button
-                                        onClick={() => handleDelete(form._id)}
-                                        className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
-                                    >
-                                        Delete
-                                    </button>
+                                    
                                 </td>
                             </tr>
                         ))}

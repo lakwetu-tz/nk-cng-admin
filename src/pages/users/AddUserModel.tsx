@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 
@@ -11,13 +12,6 @@ type FormData = {
     city: string;
     state: string;
     zip: string;
-    sponsorFirstName: string;
-    sponsorLastName: string;
-    sponsorPhone: string;
-    sponsorEmail: string;
-    sponsorNationalId: string;
-    sponsorCity: string;
-    image: string | ArrayBuffer | null;
 };
 
 type Props = {
@@ -37,13 +31,6 @@ const AddUserModal: React.FC<Props> = ({ isOpen, onClose }) => {
         city: '',
         state: '',
         zip: '',
-        sponsorFirstName: '',
-        sponsorLastName: '',
-        sponsorPhone: '',
-        sponsorEmail: '',
-        sponsorNationalId: '',
-        sponsorCity: '',
-        image: null,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,15 +58,11 @@ const AddUserModal: React.FC<Props> = ({ isOpen, onClose }) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://your-server-url.com/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+            const response = await axios.post('https://127.0.0.1:400/api/v1/form/personal', {
+              formData
             });
 
-            if (response.ok) {
+            if (response.data.status === 'Ok') {
                 // Handle success
                 console.log('Form submitted successfully');
                 onClose();
@@ -117,12 +100,25 @@ const AddUserModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                         {['firstName', 'lastName', 'email', 'phone', 'nationalId', 'address', 'city', 'state', 'zip'].map((field, index) => (
                                             <div key={index} className="col-span-full sm:col-span-3">
                                                 <label htmlFor={field} className="text-sm">{field.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</label>
-                                                <input id={field} name={field} type="text" value={(formData as any)[field]} onChange={handleChange} placeholder={field.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} className="w-full rounded-md px-4 py-2 border-2 focus:ring focus:ring-opacity-75 text-gray-50 border-gray-300" />
+                                                <input 
+                                                    id={field} 
+                                                    name={field} 
+                                                    type="text" 
+                                                    value={(formData as any)[field]} 
+                                                    onChange={handleChange} 
+                                                    placeholder={field.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} 
+                                                    className="w-full rounded-md px-4 py-2 border-2 focus:ring focus:ring-opacity-75 text-gray-50 border-gray-300" />
                                             </div>
                                         ))}
                                         <div className="col-span-full">
                                             <label htmlFor="image" className="text-sm">Photo</label>
-                                            <input id="image" name="image" type="file" accept="image/*" onChange={handleImageChange} className="w-full rounded-md px-4 py-2 border-2 focus:ring focus:ring-opacity-75 text-gray-50 border-gray-300" />
+                                            <input 
+                                                id="image" 
+                                                name="image" 
+                                                type="file" 
+                                                accept="image/*" 
+                                                onChange={handleImageChange} 
+                                                className="w-full rounded-md px-4 py-2 border-2 focus:ring focus:ring-opacity-75 text-gray-50 border-gray-300" />
                                         </div>
                                     </div>
                                     <div className="mt-6 flex justify-end w-full">

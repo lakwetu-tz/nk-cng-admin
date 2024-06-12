@@ -135,7 +135,7 @@ export const posts = [
         title: "Ford",
         model: "mastang",
         desc: "20",
-        img: image1,
+        img: "",
         authorLogo: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
         authorName: "Sidi dev",
         date: "Jan 4 2022",
