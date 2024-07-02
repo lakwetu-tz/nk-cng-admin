@@ -13,6 +13,8 @@ import { AuthProvider, useAuth } from './context/AuthProvider';
 import Map from './pages/map/MapPage';
 import MapLayout from './layout/MapLayout';
 import useScreenWidth from './hooks/useScreen';
+import FormPage from './pages/form/FormPage';
+import ViewLoanPage from './pages/form/ViewFormPage';
 
 const App: React.FC = () => {
   const screenWidth = useScreenWidth();
@@ -40,33 +42,46 @@ const App: React.FC = () => {
 
 
   return (
-   
-      <Router>
-        <Routes>
-          {!user || !user.token ? (
+
+    <Router>
+      <Routes>
+        {/* {!user || !user.token ? (
             <>
              <Route path="/login" element={<LoginPage />} />
              <Route path="/register" element={<RegisterPage />} />
            </>
-              ): (
-            <>
-            <Route element={<MainLayout />}>
-                <Route path="/user" element={<UserPage />} />
-                <Route path="/report" element={<Report />} />
-                <Route path="/payment" element={<PayPage />} />
-                <Route path="/vehicles" element={<VehiclePage />} />
-            </Route>
-              
-              <Route path="/map" element={<MapLayout />}>
-                <Route index element={<Map />} />
-              </Route>
-              <Route path="/" element={<DashLayout />}>
-                <Route index element={<Dashboard />} />
-              </Route>
-            </>
-          )}
-        </Routes>
-      </Router>
+              ): ( */}
+        <>
+          <Route element={<MainLayout />}>
+            {/* welcome urls */}
+            <Route path="/report" element={<Report />} />
+
+            {/* user urls */}
+            <Route path="/user" element={<UserPage />} />
+
+
+            {/* loan urls */}
+            <Route path="/payment" element={<PayPage />} />
+
+            {/* vehicle urls */}
+            <Route path="/vehicles" element={<VehiclePage />} />
+
+            {/* form urls */}
+            <Route path="/form" element={<FormPage />} />
+            <Route path="/form/view" element={<ViewLoanPage />} />
+
+          </Route>
+
+          <Route path="/map" element={<MapLayout />}>
+            <Route index element={<Map />} />
+          </Route>
+          <Route path="/" element={<DashLayout />}>
+            <Route index element={<Dashboard />} />
+          </Route>
+        </>
+        {/* )} */}
+      </Routes>
+    </Router>
 
   );
 };

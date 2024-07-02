@@ -19,7 +19,7 @@ const LoginPage: React.FC = () => {
 
         try {
             // Make the actual API call when the server is working
-            const response = await axios.post('http://127.0.0.1:4000/api/v1/superuser/login', {
+            const response = await axios.post(`${process.env.BASE_URL}/superuser/login`, {
                 auth,
                 password,
             });

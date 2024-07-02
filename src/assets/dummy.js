@@ -1,4 +1,4 @@
-import { FiDatabase, FiBarChart2, FiMapPin, FiUsers, FiTool, FiArchive, FiHelpCircle, FiSettings, FiDollarSign, FiLogOut } from "react-icons/fi";
+import { FiDatabase, FiBarChart2, FiMapPin, FiUsers, FiTool, FiArchive, FiHelpCircle, FiSettings, FiDollarSign, FiLogOut, FiBook } from "react-icons/fi";
 
 import React from "react";
 const image1 = require('./image/1.jpg')
@@ -30,6 +30,11 @@ export const navigation = [
         href: "/user",
         name: "User",
         icon: <FiUsers size={18} />,
+    },
+    {
+        href: "/form",
+        name: "Form",
+        icon: <FiBook size={18} />,
     },
     {
         href: "/vehicles",
@@ -222,7 +227,7 @@ export const posts = [
 
 export const integrations = [
     {
-        title: "Azam Pay",
+        title: "Maendeleo Bank Loans",
         desc: "Intergrate the platform with Azam-Pay",
         icon: azam,
                 

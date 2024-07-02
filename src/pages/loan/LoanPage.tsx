@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { integrations, transactions } from '../../assets/dummy';
-import { FiSearch } from 'react-icons/fi';
+import { FiPlus, FiSearch } from 'react-icons/fi';
+import ViewLoans from './loans/ViewLoans';
 
 const PayPage: React.FC = () => {
 
@@ -12,8 +13,8 @@ const PayPage: React.FC = () => {
             name: "Overview"
         },
         {
-            tab: "integration",
-            name: "Integration"
+            tab: "loans",
+            name: "Loans"
         },
         {
             tab: "transactions",
@@ -271,36 +272,8 @@ const PayPage: React.FC = () => {
             )}
 
 
-            {isActiveTab === "integration" && (
-                <section className="py-16">
-                    <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-                        <div className="max-w-md">
-                            <h1 className="text-gray-800 text-xl font-extrabold sm:text-2xl"> Payment Integrations</h1>
-                            <p className="text-gray-600 mt-2">Seamlessly integrate your application with popular payment services.</p>
-                        </div>
-                        <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                            {
-                                integrations.map((item, idx) => (
-                                    <li className="border rounded-lg">
-                                        <div className="flex items-start justify-between p-4">
-                                            <div className="space-y-2">
-                                                {/* <img src={item.icon} alt='payment' className='w-18 h-12'/> */}
-                                                <h4 className="text-gray-800 font-semibold">{item.title}</h4>
-                                                <p className="text-gray-600 text-sm">{item.desc}</p>
-                                            </div>
-                                            <button className="text-gray-700 text-sm border rounded-lg px-3 py-2 duration-150 hover:bg-gray-100">Integrate</button>
-                                        </div>
-                                        <div className="py-5 px-4 border-t text-right">
-                                            <a href="javascript:void(0)" className="text-green-600 hover:text-green-500 text-sm font-medium">
-                                                View docs
-                                            </a>
-                                        </div>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                </section>
+            {isActiveTab === "loans" && (
+                <ViewLoans />
             )}
 
 
@@ -408,7 +381,7 @@ const PayPage: React.FC = () => {
                                             </td>
                                             <td className="p-3">{transaction.date}</td>
                                             <td className="p-3 text-right">TZS {transaction.amount.toLocaleString()}</td>
-                                            
+
                                         </tr>
                                     ))}
                                 </tbody>
@@ -416,7 +389,7 @@ const PayPage: React.FC = () => {
                         </div>
                     </div>
 
-                    
+
                 </section>
             )}
 
